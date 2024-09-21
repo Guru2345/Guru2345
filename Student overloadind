@@ -1,0 +1,20 @@
+class Student {
+    String name;
+    String adhar;
+    
+    // Constructor
+    Student(String x, String y) {
+        this.name = x;  // Assign the parameter x to the class variable name
+        this.adhar = y; // Assign the parameter y to the class variable adhar
+    }
+    
+    // Main method
+    public static void main(String[] args) {
+        // Create a Student object
+        Student student = new Student("hari", "12345675332");
+        
+        // Access the object's fields
+        System.out.println("Name: " + student.name);
+        System.out.println("Adhar: " + student.adhar);
+    }
+}
