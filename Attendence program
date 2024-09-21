@@ -1,0 +1,100 @@
+import java.util.Scanner;
+
+class StudentAttendance {
+    // Variables to store attendance details
+    private int year;
+    private int month;
+    private int totalDaysInMonth;
+    private int holidays;
+    private int festivals;
+    private int leaves;
+    private int classesPerDay;
+
+    // Constructor to initialize the student attendance details
+    public StudentAttendance(int year, int month, int totalDaysInMonth, int holidays, int festivals, int leaves, int classesPerDay) {
+        this.year = year;
+        this.month = month;
+        this.totalDaysInMonth = totalDaysInMonth;
+        this.holidays = holidays;
+        this.festivals = festivals;
+        this.leaves = leaves;
+        this.classesPerDay = classesPerDay;
+    }
+
+    // Method to calculate total working days
+    public int getTotalWorkingDays() {
+        return totalDaysInMonth - (holidays + festivals);
+    }
+
+    // Method to calculate present days
+    public int getPresentDays() {
+        return getTotalWorkingDays() - leaves;
+    }
+
+    // Method to calculate total classes in the month
+    public int getTotalClasses() {
+        return getTotalWorkingDays() * classesPerDay;
+    }
+
+    // Method to calculate classes attended
+    public int getClassesAttended() {
+        return getPresentDays() * classesPerDay;
+    }
+
+    // Method to calculate attendance percentage
+    public double getAttendancePercentage() {
+        return ((double) getClassesAttended() / getTotalClasses()) * 100;
+    }
+
+    // Method to display attendance details
+    public void displayAttendance() {
+        System.out.println("\nStudent Attendance Report for " + year + "/" + month + ":");
+        System.out.println("Total days in month: " + totalDaysInMonth);
+        System.out.println("Total working days (after holidays and festivals): " + getTotalWorkingDays());
+        System.out.println("Leaves taken: " + leaves);
+        System.out.println("Present days: " + getPresentDays());
+        System.out.println("Total classes scheduled: " + getTotalClasses());
+        System.out.println("Classes attended: " + getClassesAttended());
+        System.out.println("Attendance Percentage: " + String.format("%.2f", getAttendancePercentage()) + "%");
+    }
+}
+
+public class Main {
+    public static void main(String[] args) {
+        Scanner scanner = new Scanner(System.in);
+
+        // Input year and month
+        System.out.print("Enter the year: ");
+        int year = scanner.nextInt();
+
+        System.out.print("Enter the month (1-12): ");
+        int month = scanner.nextInt();
+
+        // Input number of days in the month
+        System.out.print("Enter the number of days in the month: ");
+        int totalDaysInMonth = scanner.nextInt();
+
+        // Input number of holidays and festivals
+        System.out.print("Enter the number of holidays: ");
+        int holidays = scanner.nextInt();
+
+        System.out.print("Enter the number of festivals: ");
+        int festivals = scanner.nextInt();
+
+        // Input number of leaves taken
+        System.out.print("Enter the number of leaves taken: ");
+        int leaves = scanner.nextInt();
+
+        // Input number of classes per day
+        System.out.print("Enter the number of classes per day: ");
+        int classesPerDay = scanner.nextInt();
+
+        // Create a StudentAttendance object and calculate attendance
+        StudentAttendance attendance = new StudentAttendance(year, month, totalDaysInMonth, holidays, festivals, leaves, classesPerDay);
+
+        // Display attendance report
+        attendance.displayAttendance();
+
+        scanner.close();
+    }
+}
