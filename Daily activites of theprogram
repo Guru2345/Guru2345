@@ -1,0 +1,29 @@
+import java.util.Scanner;
+public class StudentDailyHours {
+    public static void main(String[] args) {
+        Scanner sc = new Scanner(System.in);
+        double study, food, sleep, bath, mobile, other, total;
+
+        System.out.print("Study hours: ");
+        study = sc.nextDouble();
+        System.out.print("Food hours: ");
+        food = sc.nextDouble();
+        System.out.print("Sleep hours: ");
+        sleep = sc.nextDouble();
+        System.out.print("Bath hours: ");
+        bath = sc.nextDouble();
+        System.out.print("Mobile hours: ");
+        mobile = sc.nextDouble();
+        System.out.print("Other activities: ");
+        other = sc.nextDouble();
+
+        total = study + food + sleep + bath + mobile + other;
+
+        if (total > 24) 
+            System.out.println("Error: Total hours exceed 24.");
+        else {
+            System.out.println("Total: " + total + " hours, Remaining: " + (24 - total) + " hours.");
+        }
+        sc.close();
+    }
+}
