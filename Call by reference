@@ -1,0 +1,18 @@
+class Box {
+    int length;
+    Box(int l) {
+        length = l;
+    }
+    void changeLength(Box b) {
+        b.length = 20; 
+    }
+}
+
+public class Main {
+    public static void main(String[] args) {
+        Box box = new Box(10); 
+        System.out.println("Before: " + box.length); 
+        box.changeLength(box);
+        System.out.println("After: " + box.length);  
+    }
+}
