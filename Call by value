@@ -1,0 +1,20 @@
+class Check {
+    void swap(int num1, int num2) {
+        int temp;
+        temp = num1;
+        num1 = num2;
+        num2 = temp;
+    }
+}
+
+class PassPrimitive {
+    public static void main(String[] args) {
+        int num1 = 10;
+        int num2 = 20;
+        Check c1 = new Check();
+        
+        System.out.println("Before swapping: num1: " + num1 + " num2: " + num2);
+        c1.swap(num1, num2);
+        System.out.println("After swapping: num1: " + num1 + " num2: " + num2);
+    }
+}
