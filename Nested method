@@ -1,0 +1,17 @@
+class MathOperations {
+static int add(int a,int b){
+        return a + b;
+    }
+ static  int multiply(int a, int b) {
+        return a * b;
+}
+    public static int addAndMultiply(int a, int b) {
+        int sum = add(a, b);
+        return multiply(sum, a);
+    }
+
+    public static void main(String[] args) {
+        int result = addAndMultiply(3, 5);
+        System.out.println(result);  
+    }
+}
