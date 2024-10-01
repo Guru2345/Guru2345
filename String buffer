@@ -1,0 +1,11 @@
+class StringBufferExample {
+    public static void main(String[] args) {
+        StringBuffer sb = new StringBuffer("vardhan");
+        sb.append(" asifa");
+        System.out.println(sb) ;
+        sb.insert(5, ",");
+        System.out.println(sb);
+        sb.reverse();
+        System.out.println(sb); 
+    }
+}
