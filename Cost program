@@ -1,0 +1,16 @@
+public class RoomCostCalculator {
+    public static void main(String[] args) {
+        int floors = 4;
+        int roomsPerFloor = 17;
+        int membersPerRoom = 4;
+        int eggCost = 5;
+        int totalRooms = floors * roomsPerFloor;
+        int totalMembers = totalRooms * membersPerRoom;
+        int totalEggs = totalMembers;
+        int totalCost = totalEggs * eggCost;
+        System.out.println("Total number of rooms: " + totalRooms);
+        System.out.println("Total number of members: " + totalMembers);
+        System.out.println("Total eggs needed: " + totalEggs);
+        System.out.println("Total cost of the eggs: " + totalCost + " units.");
+    }
+}
