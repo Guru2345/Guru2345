@@ -1,0 +1,66 @@
+class Air {
+   
+     double oxygen; 
+     double carbonDioxide;
+     double nitrogen;     
+     double otherElements;
+
+    
+    public Air(double oxygen, double carbonDioxide, double nitrogen, double otherElements) {
+        this.oxygen = oxygen;
+        this.carbonDioxide = carbonDioxide;
+        this.nitrogen = nitrogen;
+        this.otherElements = otherElements;
+    }
+
+   
+    double getOxygen() {
+        return oxygen;
+    }
+
+     void setOxygen(double oxygen) {
+        this.oxygen = oxygen;
+    }
+
+     double getCarbonDioxide() {
+        return carbonDioxide;
+    }
+
+    void setCarbonDioxide(double carbonDioxide) {
+        this.carbonDioxide = carbonDioxide;
+    }
+
+     double getNitrogen() {
+        return nitrogen;
+    }
+
+     void setNitrogen(double nitrogen) {
+        this.nitrogen = nitrogen;
+    }
+
+     double getOtherElements() {
+        return otherElements;
+    }
+
+     void setOtherElements(double otherElements) {
+        this.otherElements = otherElements;
+    }
+
+    
+     void displayComposition() {
+        System.out.println("Air Composition:");
+        System.out.println("Oxygen: " + oxygen + "%");
+        System.out.println("Carbon Dioxide: " + carbonDioxide + "%");
+        System.out.println("Nitrogen: " + nitrogen + "%");
+        System.out.println("Other Elements: " + otherElements + "%");
+    }
+
+    
+    public static void main(String[] args) {
+        
+        Air air = new Air(21, 0.04, 78, 0.96);
+
+    
+        air.displayComposition();
+    }
+}
