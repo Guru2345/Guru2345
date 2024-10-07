@@ -1,0 +1,9 @@
+class NumberOfCountries {
+    public static void main(String[] args) {
+    
+        int numberOfCountries = 195;
+
+       
+        System.out.println("There are " + numberOfCountries + " countries in the world.");
+    }
+}
