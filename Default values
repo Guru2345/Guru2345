@@ -1,0 +1,14 @@
+class Default {
+    static Short l;
+    static Double d;
+    static Float f;
+    static Integer I;
+
+    public static void main(String[] args) {
+        System.out.println("default values");
+        System.out.println("length: " + l);
+        System.out.println("double: " + d);
+        System.out.println("float: " + f);
+        System.out.println("int: " + I);
+    }
+}
