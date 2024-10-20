@@ -1,0 +1,54 @@
+import java.util.Scanner;
+
+public class CancelMatchingCharacters {
+    public static void main(String[] args) {
+        Scanner scanner = new Scanner(System.in);
+        System.out.print("Enter the first string: ");
+        String str1 = scanner.nextLine();
+
+        System.out.print("Enter the second string: ");
+        String str2 = scanner.nextLine();
+        StringBuilder sb1 = new StringBuilder(str1);
+        StringBuilder sb2 = new StringBuilder(str2);
+        for (int i = 0; i < sb1.length(); i++) {
+            char ch = sb1.charAt(i);
+            int indexInStr2 = sb2.indexOf(String.valueOf(ch));
+            if (indexInStr2 != -1) {
+                sb1.deleteCharAt(i);
+                sb2.deleteCharAt(indexInStr2);
+                i--; 
+            }
+        }
+        int remainingCharacters = sb1.length() + sb2.length();
+        System.out.println("Remaining characters after canceling matches: " + remainingCharacters);
+        String flames = "FLAMES";
+        StringBuilder flamesSb = new StringBuilder(flames);
+        int idx = 0;
+        while (flamesSb.length() > 1) {
+            idx = (idx + remainingCharacters - 1) % flamesSb.length();
+            flamesSb.deleteCharAt(idx);
+        }
+        char result = flamesSb.charAt(0);
+        System.out.println("FLAMES result: " + result);
+        switch (result) {
+            case 'F':
+                System.out.println("You are Friends!");
+                break;
+            case 'L':
+                System.out.println("You are in Love!");
+                break;
+            case 'A':
+                System.out.println("You have Affection!");
+                break;
+            case 'M':
+                System.out.println("You will get Married!");
+                break;
+            case 'E':
+                System.out.println("You are Enemies!");
+                break;
+            case 'S':
+                System.out.println("You are Siblings!");
+                break;
+        }
+    }
+}
