@@ -1,0 +1,18 @@
+class MultipleCatch {
+    public static void main(String[] args) {
+        try {
+            String str = null;
+            int[] number = new int[5];
+            number[5] = 50;
+        } catch (NullPointerException e) {
+            System.out.println("error.null pointer exception");
+        } catch (ArrayIndexOutOfBoundsException e) {
+            System.out.println("error.array bound index exception");
+        } catch (Exception e) {
+            System.out.println("error.exception");
+        } finally {
+            System.out.println("null pointer exception completed");
+        }
+        System.out.println("program will be executed");
+    }
+}
