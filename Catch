@@ -1,0 +1,19 @@
+class GoodMorningThread extends Thread {
+    public void run() {
+        try {
+            while (true) {
+                System.out.println("Good morning thread");
+                Thread.sleep(10000);
+            }
+        } catch (InterruptedException e) {
+            System.out.println("Error: exception");
+        }
+    }
+}
+
+public class GoodMorningApp {
+    public static void main(String[] args) {
+        GoodMorningThread gmt = new GoodMorningThread();
+        gmt.start();
+    }
+}
