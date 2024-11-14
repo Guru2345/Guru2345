@@ -1,0 +1,26 @@
+class Animal {
+    void makeSound() {
+        System.out.println("Animal makes sound");
+    }
+}
+
+class Dog extends Animal {
+    void makeSound() {
+        System.out.println("Dog makes sound");
+    }
+}
+
+class Lion extends Animal {
+    void makeSound() {
+        System.out.println("Lion makes sound");
+    }
+}
+
+class RunTimePolymorphism {
+    public static void main(String[] args) {
+        Animal a = new Dog();
+        a.makeSound(); // Output: Dog makes sound
+        a = new Lion();
+        a.makeSound(); // Output: Lion makes sound
+    }
+}
