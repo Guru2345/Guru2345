@@ -1,0 +1,43 @@
+class BuiltInExceptionDemo {
+    public static void main(String[] args) {
+        try {
+            int result = 10 / 0;
+        } catch (ArithmeticException e) {
+            System.out.println("Error: Zero Division Not Allowed.");
+        }
+
+        try {
+            int[] numbers = new int[5];
+            numbers[10] = 100;
+        } catch (ArrayIndexOutOfBoundsException e) {
+            System.out.println("Error: Array index out of bound.");
+        }
+
+        try {
+            String str = "abc";
+            int number = Integer.parseInt(str);
+        } catch (NumberFormatException e) {
+            System.out.println("Error: Number format.");
+        }
+
+        try {
+            String str = null;
+            System.out.println(str.length());
+        } catch (NullPointerException e) {
+            System.out.println("Error: Null pointer.");
+        }
+
+        try {
+            String[] data = {"20", "30", null};
+            for (int i = 0; i < data.length; i++) {
+                System.out.println(Integer.parseInt(data[i]));
+            }
+        } catch (ArrayIndexOutOfBoundsException e) {
+            System.out.println("Error: Array index out of bound.");
+        } catch (NumberFormatException e) {
+            System.out.println("Error: Number format.");
+        } catch (NullPointerException e) {
+            System.out.println("Error: Null pointer.");
+        }
+    }
+}
