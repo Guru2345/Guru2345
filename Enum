@@ -1,0 +1,33 @@
+public class EnumExample {
+    // Define the enum
+    enum Day {
+        MONDAY, TUESDAY, WEDNESDAY, THURSDAY, FRIDAY, SATURDAY, SUNDAY
+    }
+
+    public static void main(String[] args) {
+        // Assign an enum value
+        Day today = Day.MONDAY;
+
+        // Switch case with enum
+        switch (today) {
+            case MONDAY:
+                System.out.println("Start of the workweek!");
+                break;
+            case FRIDAY:
+                System.out.println("End of the workweek!");
+                break;
+            case SATURDAY:
+            case SUNDAY:
+                System.out.println("It's the weekend!");
+                break;
+            default:
+                System.out.println("It's a regular weekday.");
+        }
+
+        // Iterate over all enum values
+        System.out.println("All days of the week:");
+        for (Day day : Day.values()) {
+            System.out.println(day);
+        }
+    }
+}
