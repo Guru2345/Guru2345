@@ -1,0 +1,52 @@
+class MyThread extends Thread {
+    private boolean isSuspended = false;
+
+    public synchronized void suspendThread() {
+        isSuspended = true;
+    }
+
+    public synchronized void resumeThread() {
+        isSuspended = false;
+        notify(); // Wake up the thread
+    }
+
+    @Override
+    public void run() {
+        while (true) {
+            synchronized (this) {
+                while (isSuspended) {
+                    try {
+                        wait(); // Pause execution
+                    } catch (InterruptedException e) {
+                        System.out.println("Thread interrupted");
+                    }
+                }
+            }
+            System.out.println(Thread.currentThread().getName() + " is running");
+            try {
+                Thread.sleep(1000); // Simulate work
+            } catch (InterruptedException e) {
+                System.out.println("Thread interrupted during sleep");
+            }
+        }
+    }
+}
+
+public class SuspendResumeDemo {
+    public static void main(String[] args) {
+        MyThread thread = new MyThread();
+        thread.start();
+
+        try {
+            Thread.sleep(3000); // Let the thread run for 3 seconds
+            System.out.println("Suspending thread...");
+            thread.suspendThread();
+
+            Thread.sleep(3000); // Suspend for 3 seconds
+            System.out.println("Resuming thread...");
+            thread.resumeThread();
+        } catch (InterruptedException e) {
+            e.printStackTrace();
+        }
+    }
+}
