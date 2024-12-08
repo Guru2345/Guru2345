@@ -1,0 +1,17 @@
+public class ExtractCharacters {
+    public static void main(String[] args) {
+        Scanner scanner = new Scanner(System.in);
+
+        // Input the string
+        System.out.print("Enter a string: ");
+        String inputString = scanner.nextLine();
+
+        // Extract and display characters
+        System.out.println("Characters in the string:");
+        for (int i = 0; i < inputString.length(); i++) {
+            System.out.println("Character at index " + i + ": " + inputString.charAt(i));
+        }
+
+        scanner.close();
+    }
+}
