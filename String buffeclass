@@ -1,0 +1,13 @@
+class StringBufferDemo{
+    public static void main(String[] args){
+        StringBuffer sb1= new StringBuffer(" helloworld");
+        sb1. delete (0, 5);
+        System. out. println (sb1);
+StringBuffer sb2= new StringBuffer("some content") ;
+sb2. delete(0,sb2 .length() );
+System. out. println (sb2);
+StringBuffer sb3= new StringBuffer("hello") ;
+sb3.deleteCharAt(0);
+System. out. println (sb3);
+}
+}
