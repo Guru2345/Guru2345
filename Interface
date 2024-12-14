@@ -1,0 +1,20 @@
+interface Father {
+    double PROPERTY=1000;
+    double HEIGHT= 2.3;
+}
+interface Mother {
+    double PROPERTY=2000;
+    double HEIGHT= 3.3;
+}
+class Myclass implements Father, Mother {
+    void display(){
+        System. out. println ("amount:"+(Father .PROPERTY+Mother.PROPERTY));
+        System. out. println ("height:"+(Father .HEIGHT+Mother .HEIGHT/2));
+    }
+}
+class Man{
+    public static void main (String [] args){
+        Myclass m= new Myclass() ;
+        m. display () ;
+    }
+}
