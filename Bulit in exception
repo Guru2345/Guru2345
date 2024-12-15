@@ -1,0 +1,45 @@
+class BuiltInException {
+    public static void main(String[] args) {
+        try {
+            int result = 10 / 0; // Arithmetic Exception
+        } catch (ArithmeticException e) {
+            System.out.println("Error: Division by zero is not allowed.");
+        }
+
+        try {
+            int[] numbers = new int[5];
+            numbers[10] = 100; // ArrayIndexOutOfBoundsException
+        } catch (ArrayIndexOutOfBoundsException e) {
+            System.out.println("Error: Array index out of bounds.");
+        }
+
+        try {
+            String str = "abc";
+            int number = Integer.parseInt(str); // NumberFormatException
+        } catch (NumberFormatException e) {
+            System.out.println("Error: Number format exception.");
+        }
+
+        try {
+            String str = null;
+            System.out.println(str.length()); // NullPointerException
+        } catch (NullPointerException e) {
+            System.out.println("Error: Null pointer exception.");
+        }
+
+        try {
+            String[] data = { "10", "20", null };
+            for (int i = 0; i < data.length; i++) { // Fixed `length()` to `length`
+                System.out.println(Integer.parseInt(data[i])); // NullPointerException or NumberFormatException
+            }
+        } catch (ArrayIndexOutOfBoundsException e) {
+            System.out.println("Error: Array index out of bounds.");
+        } catch (NumberFormatException e) {
+            System.out.println("Error: Number format exception.");
+        } catch (NullPointerException e) {
+            System.out.println("Error: Null pointer exception.");
+        }
+
+        System.out.println("Program executed successfully.");
+    }
+}
