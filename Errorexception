@@ -1,0 +1,23 @@
+class MultipleCatchDemo{
+    public static void main(String [] args){
+        try{
+            String str=null;
+            int number []=new int[5];
+            System. out. println (str .length () );
+            number [10]=100;
+        }
+        catch(NullPointerException e){
+            System .out. println ("error:null pointer exception accuurred");
+        }
+        catch (ArrayIndexOutOfBoundsException e){
+            System. out. println ("error:array index out bound exception");
+        }
+     catch(Exception e){
+         System. out. println ("error:unexpected exception accurded");
+     }
+     finally {
+         System .out .println ("this block executed regard less of exception");
+     }
+     System. out. println ("program will be complete");
+    }
+}
