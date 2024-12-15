@@ -1,0 +1,49 @@
+class GoodMorningThread extends Thread{
+    public void run() {
+        try{
+        while(true){
+         System. out. println ("good morning thread");
+         Thread. sleep(1000);
+        }
+    }
+    catch(InterruptedException e){
+        System. out. println ("I terrupted exception occur");
+    }
+}
+}
+class HelloThread extends Thread{
+    public void run() {
+        try{
+        while(true){
+         System. out. println ("hello thread");
+         Thread. sleep(2000);
+        }
+    }
+    catch(InterruptedException e){
+        System. out. println ("I terrupted exception occur");
+    }
+}
+}
+class WelComeThread extends Thread{
+    public void run() {
+        try{
+        while(true){
+         System. out. println ("welcome thread");
+         Thread. sleep(3000);
+        }
+    }
+    catch(InterruptedException e){
+        System. out. println ("I terrupted exception occur");
+    }
+}
+}
+class Multiple {
+    public static void main(String [] args){
+        GoodMorningThread g=new GoodMorningThread() ;
+        HelloThread h= new HelloThread() ;
+        WelComeThread w= new WelComeThread() ;
+        w. start() ;
+        h. start() ;
+        w. start () ;
+    }
+}
