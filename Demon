@@ -1,0 +1,43 @@
+class DaemonTask1 implements Runnable{
+    public void run() {
+        try{
+            while(true){
+                System. out. println ("demonthread 1  running");
+                Thread. sleep(1000);
+            }
+        }
+        catch(InterruptedException e){
+            System. out. println ("interrupted exception");
+        }
+    }
+}
+class DaemonTask2 implements Runnable{
+    public void run() {
+        try{
+            while(true){
+                System. out. println ("demonthread 2  running");
+                Thread. sleep(2000);
+            }
+        }
+        catch(InterruptedException e){
+            System. out. println ("interrupted exception");
+        }
+    }
+}
+class Main{
+    public static void main(String [] args){
+        Thread daemonThread1=new Thread(new DaemonTask1());
+        daemonThread1. setDaemon(true);
+        Thread daemonThread2= new Thread(new DaemonTask2() );
+        daemonThread2. setDaemon(true);
+        daemonThread1. start() ;
+        daemonThread2. start () ;
+        try{
+            Thread. sleep(3000);
+        }
+        catch(InterruptedException e){
+            System. out. println ("interrupted exception");
+        }
+        System. out. println ("main thread interrupted");
+    }
+}
