@@ -1,0 +1,8 @@
+begin = int(input("enter the begin  value"))
+end = int(input ("enter the end value"))
+for x in range(begin, end):
+    for y in range(2, x):
+        if x % y == 0:
+            break
+    else:
+        print(x, end=" ")
