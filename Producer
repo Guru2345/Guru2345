@@ -1,0 +1,51 @@
+class Producor implements Runnable {
+    StringBuffer sb;
+
+    Producor() {
+        sb = new StringBuffer();
+    }
+
+    public void run() {
+        synchronized (sb) { // Fixed spelling: synchornized -> synchronized
+            for (int i = 0; i < 10; i++) { // Assuming n=10; modify as needed
+                try {
+                    sb.append(i + ":");
+                    System.out.println(i + " appended");
+                } catch (Exception e) { // Exception for any runtime issues
+                    e.printStackTrace();
+                }
+            }
+            sb.notify(); // Notify consumer after appending
+        }
+    }
+}
+
+class Consumer implements Runnable {
+    Producor prod;
+
+    Consumer(Producor prod) {
+        this.prod = prod;
+    }
+
+    public void run() {
+        synchronized (prod.sb) {
+            try {
+                prod.sb.wait(); // Wait for producer to complete
+            } catch (Exception e) {
+                e.printStackTrace();
+            }
+            System.out.println(prod.sb); // Print the final content of StringBuffer
+        }
+    }
+}
+
+public class Communicate {
+    public static void main(String[] args) {
+        Producor obj1 = new Producor();
+        Consumer obj2 = new Consumer(obj1);
+        Thread t1 = new Thread(obj1);
+        Thread t2 = new Thread(obj2);
+        t1.start();
+        t2.start();
+    }
+}
