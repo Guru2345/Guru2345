@@ -1,0 +1,9 @@
+a=10
+b=20
+c=30
+if a>b and a>c:
+    print("a value is greater than b and c")
+elif b>a and b>c:
+    print("bvalue is greater than a and c")
+else:
+    print("c value is greater than b and a")
