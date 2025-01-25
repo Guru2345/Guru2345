@@ -1,0 +1,36 @@
+import speech_recognition as sr
+from googletrans import Translator
+from gtts import gTTS
+import os
+
+def audio_translation(input_audio, target_language):
+    # Recognize speech from audio
+    recognizer = sr.Recognizer()
+    with sr.AudioFile(input_audio) as source:
+        print("Processing audio...")
+        audio_data = recognizer.record(source)
+        try:
+            text = recognizer.recognize_google(audio_data)
+            print("Original Text:", text)
+        except:
+            print("Could not process the audio.")
+            return
+
+    # Translate text to the target language
+    translator = Translator()
+    translated_text = translator.translate(text, dest=target_language).text
+    print("Translated Text:", translated_text)
+
+    # Convert translated text to speech
+    tts = gTTS(translated_text, lang=target_language)
+    output_file = "output.mp3"
+    tts.save(output_file)
+    print(f"Translated audio saved as {output_file}")
+
+    # Play the translated audio
+    os.system(f"start {output_file}" if os.name == "nt" else f"open {output_file}")
+
+# Example usage
+audio_file = "example.wav"  # Replace with your audio file
+language_code = "fr"  # Target language (e.g., 'fr' for French)
+audio_translation(audio_file, language_code)
