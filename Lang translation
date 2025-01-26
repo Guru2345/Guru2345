@@ -1,0 +1,69 @@
+
+translation_dict = {
+    'hello': {
+        'es': 'hola',    # Spanish
+        'fr': 'bonjour', # French
+        'de': 'hallo',   # German
+        'te': 'హలో',     # Telugu
+        'ja': 'こんにちは',  # Japanese
+        'hi': 'नमस्ते',   # Hindi
+    },
+    'goodbye': {
+        'es': 'adiós',
+        'fr': 'au revoir',
+        'de': 'auf Wiedersehen',
+        'te': 'వీడ్కోలు',
+        'ja': 'さようなら',  # Japanese
+        'hi': 'अलविदा',    # Hindi
+    },
+    'thank you': {
+        'es': 'gracias',
+        'fr': 'merci',
+        'de': 'danke',
+        'te': 'ధన్యవాదాలు',  # Telugu
+        'ja': 'ありがとう',   # Japanese
+        'hi': 'धन्यवाद',   # Hindi
+    }
+}
+
+# Function to translate text based on dictionary
+def translate(text, target_lang):
+    # Convert text to lowercase to match the dictionary
+    text = text.lower()
+    
+    # Check if the word exists in the translation dictionary
+    if text in translation_dict:
+        # Check if the target language is available
+        if target_lang in translation_dict[text]:
+            return translation_dict[text][target_lang]
+        else:
+            return f"Translation for '{text}' not available in {target_lang}."
+    else:
+        return f"Word '{text}' not found in dictionary."
+
+# Input the text to be translated
+text = input("Enter the text you want to translate (e.g., 'hello', 'goodbye', 'thank you'): ")
+
+# List of available language codes
+available_languages = {
+    'es': 'Spanish',
+    'fr': 'French',
+    'de': 'German',
+    'te': 'Telugu',
+    'ja': 'Japanese',
+    'hi': 'Hindi'
+}
+
+# Show available languages to the user
+print("\nAvailable languages for translation:")
+for code, name in available_languages.items():
+    print(f"{code}: {name}")
+
+# Ask for the target language
+target_lang = input("\nEnter the target language code (e.g., 'es' for Spanish): ")
+
+# Translate the text
+translated_text = translate(text, target_lang)
+
+# Display the result
+print(f"\nTranslated text: {translated_text}")
