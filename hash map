@@ -1,0 +1,18 @@
+import java.util.*;
+
+class TestHashtable {
+    public static void main(String[] args) {
+        Hashtable<String, Integer> h1 = new Hashtable<>();
+
+        System.out.println("Initial map: " + h1);
+        h1.put("1", 100);
+        h1.put("2", 200);
+        h1.put("3", 80);
+        h1.put("1", 90);
+        System.out.println("Value for key 3: " + h1.get("3"));
+        System.out.println("Final map: " + h1);
+        for (String key : h1.keySet()) {
+            System.out.println("Key: " + key + ", Value: " + h1.get(key));
+        }
+    }
+}
