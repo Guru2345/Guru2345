@@ -1,0 +1,44 @@
+import java.util.Scanner;
+
+class MoneyCheck {
+    public static void main(String[] args) {
+        Scanner sc = new Scanner(System.in);
+        int amount;
+
+        do {
+            System.out.print("Enter a positive integer amount: ");
+            amount = sc.nextInt();
+
+            if (amount <= 0) {
+                System.out.println("Invalid input amount send valid amount");
+            }
+        } while (amount <= 0);
+
+        int rem = amount;
+        System.out.println(rem);
+
+        if (rem >= 500) {
+            int c = rem / 500;
+            System.out.println("500 x " + c);
+            rem %= 500;
+        }
+        if (rem >= 200) {
+            int c = rem / 200;
+            System.out.println("200 x " + c);
+            rem %= 200;
+        }
+        if (rem >= 100) {
+            int c = rem / 100;
+            System.out.println("100 x " + c);
+            rem %= 100;
+        }
+        if (rem >= 50) {
+            int c = rem / 50;
+            System.out.println("50 x " + c);
+            rem %= 50;
+        }
+
+        System.out.println("\nIt is a valid amount.");
+        sc.close();
+    }
+}
