@@ -1,0 +1,16 @@
+import java.util.Scanner;
+class Console{
+public static void main(String args[]){
+int userchoice=0;
+do{
+Scanner sc=new Scanner();
+Systen.out.println("enter the to see 1");
+Systen.out.println("enter the to see 2");
+Systen.out.println("enter the to see 3 to exit");
+Systen.out.println("enter the to see 1 or 2 or 3");
+ userchoice=sc.nextInt();
+Systen.out.println(userchoice);
+}while(userchoice!=3){
+}
+}
+}
