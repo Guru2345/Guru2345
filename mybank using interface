@@ -1,0 +1,38 @@
+interface Atm {
+    void showMyBalance();
+    void giveMyMoney(int cash);
+}
+
+interface Cdm {
+    void depositMoney(int cash);
+}
+
+class MyBank implements Atm, Cdm {
+int mybalance=10000;
+    public void showMyBalance() {
+        System.out.println(mybalance);
+    }
+
+    public void giveMyMoney(int cash) {
+        if (cash <= mybalance) {
+            mybalance = mybalance - cash;
+            System.out.println(mybalance);
+        } else {
+            System.out.println("invalid amount");
+        }
+    }
+
+    public void depositMoney(int cash) {
+        mybalance = mybalance + cash;
+        System.out.println(mybalance);
+    }
+
+    public static void main(String args[]) {
+        Atm a = new MyBank();
+        a.showMyBalance();
+        a.giveMyMoney(2000);
+
+        Cdm c = new MyBank();
+        c.depositMoney(4000);
+    }
+}
