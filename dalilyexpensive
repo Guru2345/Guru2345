@@ -1,0 +1,75 @@
+
+import java.util.Scanner;
+
+public class expense {
+    int houseRent;
+    int electricityBill;
+    int collegeFee;
+    int assignmentCost;
+    int recordsCost;
+    int examCost;
+    int hostelfee;
+    int travelCost;
+    int otherCost;
+    int busfee;
+     int totalExpense;
+
+    public expense(int houseRent, int electricityBill, int collegeFee, int assignmentCost, int recordsCost, int examCost, int hostelfee, int travelCost, int otherCost,int busfee) {
+        this.houseRent = houseRent;
+        this.electricityBill = electricityBill;
+        this.collegeFee = collegeFee;
+        this.assignmentCost = assignmentCost;
+        this.recordsCost = recordsCost;
+        this.examCost = examCost;
+        this.hostelfee = hostelfee;
+        this.travelCost = travelCost;
+        this.otherCost = otherCost;
+        this.busfee = busfee;
+        this.totalExpense = houseRent + electricityBill + collegeFee + assignmentCost + recordsCost + examCost + hostelfee + travelCost + otherCost + busfee;
+    }
+
+    public static void main(String[] args) {
+        Scanner sc = new Scanner(System.in);
+        System.out.println("Enter choice (1 to input expenses):");
+        int choice = sc.nextInt();
+
+        switch (choice) {
+            case 1:
+                System.out.println("Enter the house rent:");
+                int houseRent = sc.nextInt();
+                int rent = houseRent * 12;
+                System.out.println("Enter the electricity bill:");
+                int electricityBill = sc.nextInt();
+                int rentelectricityBill =  electricityBill * 12;
+                System.out.println("Enter the college fee:");
+                int collegeFee = sc.nextInt();
+                System.out.println("Enter the assignment cost:");
+                int assignmentCost = sc.nextInt();
+                int assignment= assignmentCost * 2;
+                System.out.println("Enter the records cost:");
+                int recordsCost = sc.nextInt();
+                int records= recordsCost * 2;
+                System.out.println("Enter the exam cost:");
+                int examCost = sc.nextInt();
+                int exam= examCost * 2;
+                System.out.println("Enter the hostel fee:");
+                int hostelfee = sc.nextInt();
+                System.out.println("Enter the travel cost:");
+                int travelCost = sc.nextInt();
+                int travel = travelCost * 30;
+                int dailytravel = travel*12;
+                System.out.println("Enter the other cost:");
+                int otherCost = sc.nextInt();
+                System.out.println("Enter the bus fee:");
+                int busfee = sc.nextInt();
+                expense exp = new expense(rent, rentelectricityBill, collegeFee, assignment, records, exam, hostelfee, dailytravel, otherCost, busfee);
+                System.out.println("Total Expense: " + exp.totalExpense);
+                break;
+            default:
+                System.out.println("Invalid choice");
+                break;
+        }
+
+        sc.close();
+     }
+ }
