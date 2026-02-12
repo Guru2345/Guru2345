@@ -1,0 +1,39 @@
+
+
+import java.sql.Connection;
+import java.sql.DriverManager;
+import java.sql.Statement;
+
+public class Har {
+
+    public static void main(String[] args) {
+
+        String url = "jdbc:mysql://localhost:3306/mydb";
+        String username = "root";
+        String password = "Guru";
+
+        try {
+            // Load MySQL Driver
+            Class.forName("com.mysql.cj.jdbc.Driver");
+
+            // Create Connection
+            Connection con = DriverManager.getConnection(url, username, password);
+
+            // Create Statement
+            Statement st = con.createStatement();
+
+            // Insert Query
+            String query = "INSERT INTO student VALUES (1, 'guru')";
+            st.executeUpdate(query);
+
+            System.out.println("Record Inserted Successfully");
+
+            // Close Resources
+            st.close();
+            con.close();
+
+        } catch (Exception e) {
+            e.printStackTrace();
+        }
+    }
+}
