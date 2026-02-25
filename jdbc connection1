@@ -1,0 +1,41 @@
+import java.sql.*;
+
+class Jdbc {
+
+    public static void main(String args[]) {
+        try {
+            // Load MySQL Driver (for newer versions use com.mysql.cj.jdbc.Driver)
+            Class.forName("com.mysql.cj.jdbc.Driver");
+
+            // Correct URL format
+            String url = "jdbc:mysql://localhost:3306/sonoo";
+
+            Connection con = DriverManager.getConnection(url, "root", "root");
+
+            // SQL Query
+            String q = "SELECT * FROM students";
+
+            // Correct way to create Statement
+            Statement stmt = con.createStatement();
+
+            // Execute query
+            ResultSet set = stmt.executeQuery(q);
+
+            while (set.next()) {
+                System.out.println(
+                        set.getInt(1) + "  " +
+                        set.getString(2) + "  " +
+                        set.getString(3)
+                );
+            }
+
+            // Close resources (best practice order)
+            set.close();
+            stmt.close();
+            con.close();
+
+        } catch (Exception e) {
+            System.out.println(e);
+        }
+    }
+}
