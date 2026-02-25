@@ -1,0 +1,7 @@
+class Main {
+    public static void main(String[] args) {
+
+        // Print all system properties
+        System.getProperties().list(System.out);
+    }
+}
