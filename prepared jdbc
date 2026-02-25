@@ -1,0 +1,45 @@
+import java.sql.*;
+import java.io.*;
+
+class Jdbc {
+
+    public static void main(String args[]) {
+
+        try {
+            Class.forName("com.mysql.cj.jdbc.Driver");
+
+            String url = "jdbc:mysql://localhost:3306/sonoo";
+            Connection con = DriverManager.getConnection(url, "root", "root");
+
+            BufferedReader br = new BufferedReader(new InputStreamReader(System.in));
+
+            System.out.println("Please enter your username:");
+            String uname = br.readLine();
+
+            System.out.println("Please enter your password:");
+            String pwd = br.readLine();
+
+            // Secure Query using PreparedStatement
+            String qry = "SELECT balance FROM bankbalance WHERE username=? AND password=?";
+
+            PreparedStatement ps = con.prepareStatement(qry);
+            ps.setString(1, uname);
+            ps.setString(2, pwd);
+
+            ResultSet rs = ps.executeQuery();
+
+            if (rs.next()) {
+                System.out.println("Balance: " + rs.getDouble(1));
+            } else {
+                System.out.println("Invalid user");
+            }
+
+            rs.close();
+            ps.close();
+            con.close();
+
+        } catch (Exception e) {
+            e.printStackTrace();
+        }
+    }
+}
