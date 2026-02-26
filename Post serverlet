@@ -1,0 +1,41 @@
+index.html
+<!DOCTYPE html>
+<html>
+<head>
+<meta charset="UTF-8">
+<title>Insert title here</title>
+</head>
+<body>
+<form action="add" method="Post">
+enter lst number:<input type="text" name="num1"><br>
+enter 2st number:<input type="text" name="num2"><br>
+<input type="submit">
+</form>
+</body>
+</html>
+AddServlet.java
+package Gurup;
+import javax.servlet.ServletResponse;
+import javax.servlet.http.HttpServlet;
+import javax.servlet.http.HttpServletResponse;
+import javax.servlet.http.HttpServletRequest;
+import java.io.IoException;
+public class AddServer extends HttpServlet {
+	public void doPost(HttpServletRequest req,ServletResponse res) {
+		int i=Integer.parseInt(getServlet("num1"));
+		int j=Integer.parseInt(getServlet("num2"));
+		int k=i+j;
+		printWriter out=res.getWriter();
+		System.out.println("result is"+k);
+	}
+
+}
+web.xml
+<servlet>
+<servlet-name>abc</servlet-name>
+<servlet-class>Guruup.AddServlet</servlet-class>
+</servlet>
+<servlet-mapping>
+<servlet-name>abc</servlet-name>
+<servlet-pattern>/add</servlet-pattern>
+</servlet-mapping>
