@@ -1,0 +1,54 @@
+index.html
+<!DOCTYPE html>
+<html>
+<head>
+<meta charset="UTF-8">
+<title>Insert title here</title>
+</head>
+<body>
+<form action="add" method="Get">
+enter lst number:<input type="text" name="num1"><br>
+enter 2st number:<input type="text" name="num2"><br>
+<input type="submit">
+</form>
+</body>
+</html>
+AddServlet.java
+package Gurup;
+import java.io.IoException;
+public class AddServer extends HttpServlet {
+	public void doGet(HttpServletRequest req,ServletResponse res) {
+		int i=Integer.parseInt(getServlet("num1"));
+		int j=Integer.parseInt(getServlet("num2"));
+		int k=i+j;
+res.sendRedirect("sql?k"+k);
+	}
+}
+seqServlet.java
+package Gurup;
+import java.io.IoException;
+public class AddServer extends HttpServlet {
+	public void doGet(HttpServletRequest req,ServletResponse res)  throws IoException{
+int k=integer.getParseInt(getParamter("k"));
+int k=k*k;
+printWritter out=res.getWritter();
+out.println("Result of k"+k);
+}
+}
+web.xml
+<servlet>
+<servlet-name>abc</servlet-name>
+<servlet-class>Guruup.AddServlet</servlet-class>
+</servlet>
+<servlet-mapping>
+<servlet-name>abc</servlet-name>
+<servlet-pattern>/add</servlet-pattern>
+</servlet-mapping>
+<servlet>
+<servlet-name>pqr</servlet-name>
+<servlet-class>Guruup.SqrServlet</servlet-class>
+</servlet>
+<servlet-mapping>
+<servlet-name>sqr</servlet-name>
+<servlet-pattern>/sql</servlet-pattern>
+</servlet-mapping>
