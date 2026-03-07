@@ -1,0 +1,36 @@
+class DpMemorization{
+    static int[] dp;
+    static int[] dp1;
+    static int fibD(int n){
+        if(n==0)
+            return n;
+        if(n==1)
+            return n;
+        if(dp[n]!=-1)
+            return dp[n];
+        dp[n]=fibD(n-1)+fibD(n-2);
+        return dp[n];
+    }
+     static int triD(int n){
+        if(n==0)
+            return n;
+        if(n==1 || n==2)
+            return 1;
+        if(dp1[n]!=-1)
+            return dp1[n];
+        dp1[n]=triD(n-1)+triD(n-2)+triD(n-3);
+        return dp1[n];
+    }
+    public static void main(String[] args) {
+        dp=new int[8];
+        for(int i=0;i<8;i++) 
+            dp[i]=-1;
+        int a=fibD(5);
+        System.err.println(a);
+          dp1=new int[8];
+        for(int i=0;i<8;i++) 
+            dp1[i]=-1;
+         int b=triD(5);
+        System.err.println(b);
+    }
+}
