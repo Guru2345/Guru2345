@@ -1,0 +1,26 @@
+class FrogJump{
+    static int frogJump(int[] steps){
+        if(steps == null || steps.length == 0) {
+            return 0;
+        }
+        if(steps.length == 1) {
+            // Only one stone – no jump needed.
+            return 0;
+        }
+        int n = steps.length;
+        int[] dp = new int[n];
+        dp[0] = 0;
+        dp[1] = Math.abs(steps[1] - steps[0]);
+        for (int i = 2; i < n; i++) {
+            int jump1 = dp[i-1] + Math.abs(steps[i] - steps[i-1]);
+            int jump2 = dp[i-2] + Math.abs(steps[i] - steps[i-2]);
+            dp[i] = Math.min(jump1, jump2);
+        }
+        return dp[n-1];
+       }
+       public static void main(String[] args) {
+           int[] stones = new int[]{1, 2, 3, 4};
+           int result = frogJump(stones);
+           System.err.println("Minimum cost: " + result);
+       }
+}
